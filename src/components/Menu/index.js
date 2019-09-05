@@ -6,7 +6,7 @@ function Menu(props) {
   return (
     <ul id="menu">
       <li>
-        <NavLink exact to="/">photos</NavLink>
+        <NavLink exact to="/">posts</NavLink>
       </li>
       <li>
         <NavLink to="/favorites">favorites</NavLink>

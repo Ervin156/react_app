@@ -1,0 +1,27 @@
+#posts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: #e7e7e7;
+
+  .post {
+    width: 29%;
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px;
+    background: #44aacc;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+
+    input {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
+  }
+}

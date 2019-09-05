@@ -4,7 +4,7 @@ import "./style.scss";
 function Favorites() {
   return (
     <div id="favorites">
-      <span>Hello Favorites</span>
+      <span>Favorites</span>
     </div>
   );
 }
