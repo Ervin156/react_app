@@ -1,4 +1,4 @@
-import { BASE_URL, CLIENT_ID } from "../../../system/settings";
+import { BASE_URL, CLIENT_ID } from "../../../../system/settings";
 
 export const listPosts = () => {
 

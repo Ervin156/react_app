@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Favorites from "../components/pages/Favorites";
-import Posts from "../components/pages/Posts";
+import Favorites from "../components/pages/posts/Favorites";
+import Posts from "../components/pages/posts/Post";
 
 function Router(props) {
 
