@@ -2,20 +2,39 @@ import React from "react";
 
 function Item(props) {
   const {
+    id,
     title,
     description,
     likes,
     user,
     data_create,
+    checkFavorite,
     data_update
   } = props.post;
 
-  const { addFavorite, post } = props;
+  const { addFavorite, post, removeFavorite, changePostStatus } = props;
 
-  const add = () => {
-    addFavorite(post);
+  const changeHandler = event => {
+    const check = event.target.checked;
+    if (check) {
+      addFavorite(post);
+      changePostStatus(id);
+    } else {
+      removeFavorite(id);
+      changePostStatus(id);
+
+    }
   };
-  const checkbox = addFavorite ? <input onClick={add} type="checkbox" /> : "";
+
+  const checkbox = addFavorite ? (
+    <input
+      defaultChecked={checkFavorite}
+      onClick={changeHandler}
+      type="checkbox"
+    />
+  ) : (
+    ""
+  );
 
   return (
     <div className="post">

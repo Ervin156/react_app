@@ -6,10 +6,13 @@ import { listPosts } from "../shared/service";
 import "../shared/style.scss";
 
 function Posts(props) {
-  const { 
-    posts, 
-    setPostsAction, 
-    addFavoriteAction } = props;
+  const {
+    posts,
+    setPostsAction,
+    addFavoriteAction,
+    removeFavoriteAction,
+    changePostStatusAction
+  } = props;
 
   useEffect(() => {
     listPosts().then(data => {
@@ -17,14 +20,14 @@ function Posts(props) {
     });
   }, []);
 
-
-
-  
   return (
     <div className="post-theme" id="posts">
-      <List 
-      posts={posts} 
-      addFavorite={addFavoriteAction}/>
+      <List
+        posts={posts}
+        addFavorite={addFavoriteAction}
+        removeFavorite={removeFavoriteAction}
+        changePostStatus={changePostStatusAction}
+      />
     </div>
   );
 }
@@ -36,8 +39,13 @@ const mapDispatchToProps = dispatch => {
     },
     addFavoriteAction: post => {
       dispatch({ type: "ADD_FAVORITE", post });
+    },
+    removeFavoriteAction: id => {
+      dispatch({ type: "REMOVE_FAVORITE", id });
+    },
+    changePostStatusAction: id => {
+      dispatch({ type: "CHANGE_POST_STATUS", id });
     }
-
   };
 };
 
