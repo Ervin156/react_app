@@ -4,7 +4,7 @@ import "./style.scss";
 function Footer() {
   return (
     <div id="footer">
-      <span>Hello Footer </span>
+      <span>Diesign by ERVIN S. 2019</span>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Item(props) {
   const {
@@ -12,7 +13,13 @@ function Item(props) {
     data_update
   } = props.post;
 
-  const { addFavorite, post, removeFavorite, changePostStatus } = props;
+  const {
+    addFavorite,
+    likePost,
+    post,
+    removeFavorite,
+    changePostStatus
+  } = props;
 
   const changeHandler = event => {
     const check = event.target.checked;
@@ -22,8 +29,11 @@ function Item(props) {
     } else {
       removeFavorite(id);
       changePostStatus(id);
-
     }
+  };
+
+  const likeHandler = () => {
+    likePost(props.post);
   };
 
   const checkbox = addFavorite ? (
@@ -35,15 +45,18 @@ function Item(props) {
   ) : (
     ""
   );
+  const like = likePost ? <span onDoubleClick={likeHandler}>{likes}</span> : "";
 
   return (
     <div className="post">
       {checkbox}
       <i>{data_update}</i>
-      <span>{likes}</span>
+      {like}
       <h1>{title}</h1>
       <p>{description}</p>
       <b>{user.name}</b>
+      <br/>
+      <Link to={`/post/${id}`}>Details...</Link>
     </div>
   );
 }
